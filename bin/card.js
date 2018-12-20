@@ -7,6 +7,7 @@ const boxen = require('boxen')
 
 // Define options for Boxen
 const options = {
+  color: 'blue',
   padding: 1,
   margin: 1,
   borderStyle: 'round'
@@ -14,33 +15,50 @@ const options = {
 
 // Text + chalk definitions
 const data = {
-  name: chalk.white('Tierney Cyren /'),
-  handle: chalk.cyan('bitandbang'),
-  work: chalk.white('Senior Cloud Developer Advocate at Microsoft'),
-  twitter: chalk.cyan('https://twitter.com/bitandbang'),
-  github: chalk.cyan('https://github.com/bnb'),
-  linkedin: chalk.cyan('https://linkedin.com/in/bitandbang'),
-  web: chalk.cyan('https://bnb.im'),
-  npx: chalk.white('npx bitandbang'),
-  labelWork: chalk.white.bold('      Work:'),
-  labelTwitter: chalk.white.bold('   Twitter:'),
-  labelGitHub: chalk.white.bold('    GitHub:'),
-  labelLinkedIn: chalk.white.bold('  LinkedIn:'),
-  labelWeb: chalk.white.bold('       Web:'),
-  labelCard: chalk.white.bold('      Card:')
+  name: chalk.white('🥑 Jose Muñoz'),
+  handle: chalk.cyan('jdmg94'),
+  work: chalk.white('Actively looking'),
+  twitter: chalk.cyan('https://twitter.com/jdmg93'),
+  github: chalk.cyan('https://github.com/jdmg94'),
+  linkedin: chalk.cyan('https://linkedin.com/in/jdmg94'),
+  web: chalk.cyan('https://superiortech.co'),
+  npx: chalk.white('npx jdmg94'),
 }
 
-// Actual strings we're going to output
-const newline = '\n'
-const heading = `${data.name} ${data.handle}`
-const working = `${data.labelWork}  ${data.work}`
-const twittering = `${data.labelTwitter}  ${data.twitter}`
-const githubing = `${data.labelGitHub}  ${data.github}`
-const linkedining = `${data.labelLinkedIn}  ${data.linkedin}`
-const webing = `${data.labelWeb}  ${data.web}`
-const carding = `${data.labelCard}  ${data.npx}`
 
-// Put all our output together into a single variable so we can use boxen effectively
-const output = heading + newline + newline + working + newline + twittering + newline + githubing + newline + linkedining + newline + webing + newline + newline + carding
+const generateCard = ({
+  web,
+  npx,
+  name,
+  work,
+  github,
+  handle,
+  twitter,
+  linkedin,
+}, options) => {
+  const label = {
+    work: chalk.white.bold('      work:'),
+    twitter: chalk.white.bold('   Twitter:'),
+    gitHub: chalk.white.bold('    GitHub:'),
+    linkedIn: chalk.white.bold('  LinkedIn:'),
+    web: chalk.white.bold('       Web:'),
+    card: chalk.white.bold('      Card:'),
+  }            
+  
+  const template = `
+    ${name} | ${handle}
+    
+    ${label.work}  ${work}
+    ${label.twitter}  ${twitter}
+    ${label.gitHub}  ${github}
+    ${label.linkedIn}  ${linkedin}
+    ${label.web}  ${web}
+    
+    ${label.card}  ${npx}
+  `;
+  
+  const { color } = options;
+  return chalk[color](boxen(template, options));
+};
 
-console.log(chalk.green(boxen(output, options)))
+console.log(generateCard(data, options));

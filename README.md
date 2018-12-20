@@ -1,5 +1,3 @@
-It's me, Tierney!
-
 # Usage
 Via npx:
 ```
