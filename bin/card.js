@@ -15,13 +15,14 @@ const options = {
 
 // Text + chalk definitions
 const data = {
-  name: chalk.white('🥑 Jose Muñoz'),
+  name: chalk.white('Jose Muñoz'),
   handle: chalk.cyan('jdmg94'),
   work: chalk.white('Actively looking'),
+  dev: chalk.cyan('https://dev.to/jdmg94'),
   twitter: chalk.cyan('https://twitter.com/jdmg93'),
   github: chalk.cyan('https://github.com/jdmg94'),
   linkedin: chalk.cyan('https://linkedin.com/in/jdmg94'),
-  web: chalk.cyan('https://superiortech.co'),
+  web: chalk.cyan('https://superiortech.co/'),
   npx: chalk.white('npx jdmg94'),
 }
 
@@ -29,6 +30,7 @@ const data = {
 const generateCard = ({
   web,
   npx,
+  dev,
   name,
   work,
   github,
@@ -38,6 +40,7 @@ const generateCard = ({
 }, options) => {
   const label = {
     work: chalk.white.bold('      work:'),
+    dev: chalk.white.bold('       Dev:'),
     twitter: chalk.white.bold('   Twitter:'),
     gitHub: chalk.white.bold('    GitHub:'),
     linkedIn: chalk.white.bold('  LinkedIn:'),
@@ -46,9 +49,10 @@ const generateCard = ({
   }            
   
   const template = `
-    ${name} | ${handle}
+          ${name} | ${handle}
     
     ${label.work}  ${work}
+    ${label.dev}  ${dev}
     ${label.twitter}  ${twitter}
     ${label.gitHub}  ${github}
     ${label.linkedIn}  ${linkedin}
