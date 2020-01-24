@@ -22,7 +22,7 @@ const data = {
   twitter: chalk.cyan('https://twitter.com/jdmg93'),
   github: chalk.cyan('https://github.com/jdmg94'),
   linkedin: chalk.cyan('https://linkedin.com/in/jdmg94'),
-  web: chalk.cyan('https://superiortech.co/'),
+  web: chalk.cyan('https://www.josemunoz.dev/'),
   npx: chalk.white('npx jdmg94'),
 }
 
